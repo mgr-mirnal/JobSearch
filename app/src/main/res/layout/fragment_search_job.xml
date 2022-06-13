@@ -11,9 +11,10 @@
         android:id="@+id/etSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Search..."
         android:autofillHints=""
-        android:inputType="text" />
+        android:hint="Search..."
+        android:inputType="text"
+        android:minHeight="48dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSearchJobs"
