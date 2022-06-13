@@ -66,7 +66,7 @@ class JobDetailsFragment : Fragment(R.layout.fragment_job_details) {
     private fun setUPWebView() {
         binding.webView.apply {
             webViewClient = WebViewClient()
-            currentJob.url?.let { loadUrl(it) }
+            loadUrl(currentJob.url)
         }
     }
 

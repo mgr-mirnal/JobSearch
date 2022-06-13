@@ -5,9 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.core.widget.addTextChangedListener
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.remotejob.MainActivity
 import com.example.remotejob.R
@@ -66,9 +64,9 @@ class SearchJobFragment : Fragment(R.layout.fragment_search_job) {
             adapter = jobAdapter
         }
         viewModel.searchResult().observe(viewLifecycleOwner) { remoteJob ->
-            if (remoteJob != null) {
-                jobAdapter.differ.submitList(remoteJob.jobs)
-            }
+
+                jobAdapter.differ.submitList(remoteJob?.jobs)
+
 
         }
     }

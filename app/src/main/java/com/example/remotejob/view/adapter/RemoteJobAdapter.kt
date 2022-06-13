@@ -55,8 +55,8 @@ class RemoteJobAdapter : RecyclerView.Adapter<RemoteJobAdapter.RemoteJobViewHold
             binding?.tvJobTitle?.text = currentJob.title
             binding?.tvJobType?.text = currentJob.job_type
 
-            val dateJob = currentJob.publication_date?.split("T")
-            binding?.tvDate?.text = dateJob?.get(0)
+            val dateJob = currentJob.publication_date.split("T")
+            binding?.tvDate?.text = dateJob[0]
 
         }.setOnClickListener {mView ->
             val direction = MainFragmentDirections.actionMainFragmentToJobDetailsFragment(currentJob)
