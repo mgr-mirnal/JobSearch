@@ -1,6 +1,7 @@
 package com.example.remotejob.view.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -12,7 +13,9 @@ import com.example.remotejob.models.Job
 import com.example.remotejob.models.JobToSave
 import com.example.remotejob.view.fragment.MainFragmentDirections
 
-class FavJobAdapter : RecyclerView.Adapter<FavJobAdapter.RemoteJobViewHolder>() {
+class FavJobAdapter constructor(
+    private val itemClick : OnItemClickListener)
+    : RecyclerView.Adapter<FavJobAdapter.RemoteJobViewHolder>() {
 
     private var binding: JobLayoutAdapterBinding? = null
 
@@ -56,9 +59,9 @@ class FavJobAdapter : RecyclerView.Adapter<FavJobAdapter.RemoteJobViewHolder>() 
             binding?.tvJobTitle?.text = currentJob.title
             binding?.tvJobType?.text = currentJob.job_type
 
-            val dateJob = currentJob.publication_date?.split("T")
-            binding?.tvDate?.text = dateJob?.get(0)
-
+            val dateJob = currentJob.publication_date.split("T")
+            binding?.tvDate?.text = dateJob[0]
+            binding?.ibDelete?.visibility = View.VISIBLE
 
         }.setOnClickListener {mView ->
             val tags = arrayListOf<String>()
@@ -82,12 +85,22 @@ class FavJobAdapter : RecyclerView.Adapter<FavJobAdapter.RemoteJobViewHolder>() 
             mView.findNavController().navigate(direction)
         }
 
-
+            holder.itemView.apply {
+                binding?.ibDelete?.setOnClickListener {
+                    itemClick.onItemClick(currentJob,binding?.ibDelete!!,position)
+                }
+            }
         }
 
     override fun getItemCount(): Int {
         return differ.currentList.size
     }
-
+    interface OnItemClickListener{
+        fun onItemClick(
+            job: JobToSave,
+            view: View,
+            position: Int
+            )
+    }
 
 }
