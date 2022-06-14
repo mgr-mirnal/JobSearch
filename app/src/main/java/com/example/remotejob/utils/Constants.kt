@@ -11,7 +11,7 @@ object Constants {
     /**
      * This function is used check if the device is connected to the Internet or not.
      */
-    fun isNetworkAvailable(context: Context): Boolean {
+    /*fun isNetworkAvailable(context: Context): Boolean {
         // It answers the queries about the state of network connectivity.
         val connectivityManager =
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -24,5 +24,5 @@ object Constants {
             activeNetWork.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
             else -> false
         }
-    }
+    }*/
 }

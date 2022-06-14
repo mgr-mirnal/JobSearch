@@ -13,7 +13,7 @@ import com.example.remotejob.models.Job
 import com.example.remotejob.models.JobToSave
 import com.example.remotejob.view.fragment.MainFragmentDirections
 
-class FavJobAdapter constructor(
+class FavJobAdapter (
     private val itemClick : OnItemClickListener)
     : RecyclerView.Adapter<FavJobAdapter.RemoteJobViewHolder>() {
 

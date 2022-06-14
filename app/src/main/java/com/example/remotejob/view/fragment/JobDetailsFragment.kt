@@ -73,12 +73,11 @@ class JobDetailsFragment : Fragment(R.layout.fragment_job_details) {
         //used to click link inside of url
         binding.webView.settings.apply {
             javaScriptEnabled = true
-            setAppCacheEnabled(true)
             cacheMode = WebSettings.LOAD_DEFAULT
             setSupportZoom(false)
             builtInZoomControls = false
             displayZoomControls = false
-            textZoom = 100
+            textZoom = 90
             blockNetworkImage = false
             loadsImagesAutomatically = true
         }

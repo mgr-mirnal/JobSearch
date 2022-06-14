@@ -3,10 +3,10 @@ package com.example.remotejob.repository
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.remotejob.api.RetrofitInstance
-import com.bersyte.remojob.utils.Constants.TAG
 import com.example.remotejob.database.FavoriteDatabase
 import com.example.remotejob.models.JobToSave
 import com.example.remotejob.models.RemoteJobResponse
+import com.example.remotejob.utils.Constants.TAG
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
