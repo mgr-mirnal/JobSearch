@@ -1,4 +1,4 @@
-package com.bersyte.remojob.utils
+package com.example.remotejob.utils
 
 import android.content.Context
 import android.net.ConnectivityManager

@@ -1,7 +1,7 @@
 package com.bersyte.remojob.api
 
 
-import com.bersyte.remojob.utils.Constants.BASE_URL
+import com.example.remotejob.utils.Constants.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
