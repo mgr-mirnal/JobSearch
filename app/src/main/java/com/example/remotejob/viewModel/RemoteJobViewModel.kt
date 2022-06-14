@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 class RemoteJobViewModel(
     app: Application,
     private val remoteJobRepository: RemoteJobRepository
-) : AndroidViewModel(app){
+) : AndroidViewModel(app) {
     fun remoteJobResult() = remoteJobRepository.remoteJobResult()
 
     fun addFavJob(job: JobToSave) = viewModelScope.launch {
@@ -24,6 +24,9 @@ class RemoteJobViewModel(
     }
 
     fun getAllFavJob() = remoteJobRepository.getAllFavJobs()
+
+    fun searchRemoteJob(search: String?) = remoteJobRepository.searchJobResponse(search)
+    fun searchResult() = remoteJobRepository.searchJobResult()
 }
 
 

@@ -15,11 +15,11 @@ abstract class FavoriteDatabase: RoomDatabase() {
         @Volatile
         private var instance: FavoriteDatabase? = null
         private val LOCK = Any()
-
         operator fun invoke(context: Context) = instance?: synchronized(LOCK){
+           //initialize  database
             instance?: createDatabase(context).also { instance = it }
         }
-
+        // creating database
         private fun createDatabase(context: Context) =
             Room.databaseBuilder(
                 context.applicationContext,

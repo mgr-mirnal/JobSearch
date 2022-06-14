@@ -1,4 +1,4 @@
-package com.bersyte.remojob.api
+package com.example.remotejob.api
 
 
 import com.example.remotejob.utils.Constants.BASE_URL
@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class RetrofitInstance {
 
     companion object {
-
+        // so all the api calls are shown in log
         private val retrofit by lazy {
             val logging = HttpLoggingInterceptor()
             logging.setLevel(HttpLoggingInterceptor.Level.BODY)
