@@ -1,4 +1,4 @@
-package com.bersyte.remojob.api
+package com.example.remotejob.api
 
 
 import com.example.remotejob.models.RemoteJobResponse

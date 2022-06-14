@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -75,6 +76,7 @@ class RemoteJobFragment : Fragment(R.layout.fragment_remote_job), SwipeRefreshLa
             }
         }
     }
+
 
     override fun onDestroy() {
         super.onDestroy()

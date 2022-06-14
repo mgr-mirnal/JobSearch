@@ -2,7 +2,7 @@ package com.example.remotejob.repository
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.bersyte.remojob.api.RetrofitInstance
+import com.example.remotejob.api.RetrofitInstance
 import com.bersyte.remojob.utils.Constants.TAG
 import com.example.remotejob.database.FavoriteDatabase
 import com.example.remotejob.models.JobToSave

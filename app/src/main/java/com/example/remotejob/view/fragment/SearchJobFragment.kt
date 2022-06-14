@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.remotejob.MainActivity
 import com.example.remotejob.R
@@ -70,6 +72,7 @@ class SearchJobFragment : Fragment(R.layout.fragment_search_job) {
 
         }
     }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null

@@ -7,16 +7,16 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.remotejob.databinding.JobLayoutAdapterBinding
 import com.example.remotejob.models.Job
-import com.example.remotejob.view.fragment.MainFragment
 import com.example.remotejob.view.fragment.MainFragmentDirections
 
-class RemoteJobAdapter : RecyclerView.Adapter<RemoteJobAdapter.RemoteJobViewHolder>() {
+class RemoteJobAdapter() : RecyclerView.Adapter<RemoteJobAdapter.RemoteJobViewHolder>() {
 
     private var binding: JobLayoutAdapterBinding? = null
 
-    inner class RemoteJobViewHolder(itemBinding: JobLayoutAdapterBinding) :
+     class RemoteJobViewHolder(itemBinding: JobLayoutAdapterBinding) :
         RecyclerView.ViewHolder(itemBinding.root)
 
     private val differCallback = object :
@@ -49,6 +49,7 @@ class RemoteJobAdapter : RecyclerView.Adapter<RemoteJobAdapter.RemoteJobViewHold
         holder.itemView.apply {
             Glide.with(this)
                 .load(currentJob.company_logo)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(binding?.ivCompanyLogo!!)
             binding?.tvCompanyName?.text = currentJob.company_name
             binding?.tvJobLocation?.text = currentJob.candidate_required_location
@@ -58,10 +59,11 @@ class RemoteJobAdapter : RecyclerView.Adapter<RemoteJobAdapter.RemoteJobViewHold
             val dateJob = currentJob.publication_date.split("T")
             binding?.tvDate?.text = dateJob[0]
 
-        }.setOnClickListener {mView ->
-            val direction = MainFragmentDirections.actionMainFragmentToJobDetailsFragment(currentJob)
-
+        }.setOnClickListener { mView ->
+            val direction = MainFragmentDirections
+                .actionMainFragmentToJobDetailsFragment(currentJob)
             mView.findNavController().navigate(direction)
+
         }
 
 
