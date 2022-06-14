@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebSettings
 import android.webkit.WebViewClient
 import androidx.navigation.fragment.navArgs
 import com.example.remotejob.MainActivity
@@ -64,10 +65,24 @@ class JobDetailsFragment : Fragment(R.layout.fragment_job_details) {
     }
 
     private fun setUPWebView() {
+        //setting up job details using url
         binding.webView.apply {
             webViewClient = WebViewClient()
-            currentJob.url?.let { loadUrl(it) }
+            loadUrl(currentJob.url)
         }
+        //used to click link inside of url
+        binding.webView.settings.apply {
+            javaScriptEnabled = true
+            setAppCacheEnabled(true)
+            cacheMode = WebSettings.LOAD_DEFAULT
+            setSupportZoom(false)
+            builtInZoomControls = false
+            displayZoomControls = false
+            textZoom = 100
+            blockNetworkImage = false
+            loadsImagesAutomatically = true
+        }
+
     }
 
     override fun onDestroy() {
